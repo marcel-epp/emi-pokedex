@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import Head from "next/head";
 import { useState } from "react";
+import Image from "next/image";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -15,7 +16,7 @@ export default function Home() {
   if (error) {
     return <h1>failed to load</h1>;
   }
-  console.log(data);
+  console.log(data.results);
 
   return (
     <>
@@ -27,11 +28,25 @@ export default function Home() {
       </Head>
       <main>
         <h1>Pokemon List</h1>
-        <ul>
-          {data.results.map(({ name }) => (
-            <li key={name}>{name}</li>
+        <div>
+          {data.results.map(({ name, url }) => (
+            <div key={name}>
+              <h2>{name}</h2>
+              <Image
+                // front default
+                // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                //   url.split("/")[url.split("/").length - 2]
+                // }.png`}
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
+                  url.split("/")[url.split("/").length - 2]
+                }.svg`}
+                width={250}
+                height={250}
+                alt={name}
+              />
+            </div>
           ))}
-        </ul>
+        </div>
         <button
           type="button"
           disabled={siteId === 0}
