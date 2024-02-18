@@ -12,7 +12,7 @@ This project uses:
 
 That is how it looks right now:
 
-![website with images](../emi-pokedex/public/instruction_images/pokemon-04.png)
+![website with images](/public/instruction_images/pokemon-04.png)
 
 ## Getting Started
 

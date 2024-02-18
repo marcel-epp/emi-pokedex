@@ -264,7 +264,7 @@ We only get the first 20 pokemon but not more. The api has a pagination build in
 </button>
 ```
 
-![website with buttons](../emi-pokedex/public/instruction_images/pokemon-01.png)
+![website with buttons](/public/instruction_images/pokemon-01.png)
 
 Now we import the useState from react.
 
@@ -429,7 +429,7 @@ Then we put the next image in like the code below. The pokemon api has special u
 
 The site should look like this right now:
 
-![website with images](../emi-pokedex/public/instruction_images/pokemon-02.png)
+![website with images](/public/instruction_images/pokemon-02.png)
 
 ### => please expand the dropdown to see the whole index.js!
 
@@ -727,7 +727,7 @@ And then in the same file i rename the renamed "article" to PokemonCard too:
 
 The website should look like this right now:
 
-![website with images](../emi-pokedex/public/instruction_images/pokemon-03.png)
+![website with images](/public/instruction_images/pokemon-03.png)
 
 And now... magic time warp! I added some css and changed some files. In den index.js i put a logo. In the card component i imported the CSS the files look like this right now:
 
@@ -922,4 +922,4 @@ body {
 
 The site should look like this now. 🥳
 
-![website with images](../emi-pokedex/public/instruction_images/pokemon-04.png)
+![website with images](/public/instruction_images/pokemon-04.png)
