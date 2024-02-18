@@ -1,23 +1,8 @@
-import useSWR from "swr";
 import Head from "next/head";
-import { useState } from "react";
 import Image from "next/image";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import Card from "@/components/Card";
 
 export default function Home() {
-  const [siteId, setSiteId] = useState(0);
-  const { data, error, isLoading } = useSWR(`https://pokeapi.co/api/v2/pokemon?offset=${siteId}`, fetcher);
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (error) {
-    return <h1>failed to load</h1>;
-  }
-  console.log(data.results);
-
   return (
     <>
       <Head>
@@ -27,43 +12,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Pokemon List</h1>
-        <div>
-          {data.results.map(({ name, url }) => (
-            <div key={name}>
-              <h2>{name}</h2>
-              <Image
-                // front default
-                // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                //   url.split("/")[url.split("/").length - 2]
-                // }.png`}
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
-                  url.split("/")[url.split("/").length - 2]
-                }.svg`}
-                width={250}
-                height={250}
-                alt={name}
-              />
-            </div>
-          ))}
-        </div>
-        <button
-          type="button"
-          disabled={siteId === 0}
-          onClick={() => {
-            setSiteId((siteId) => siteId - 20);
-            console.log("prev button");
-          }}>
-          Previous Button
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setSiteId((siteId) => siteId + 20);
-            console.log("next button");
-          }}>
-          Next Button
-        </button>
+        <Image
+          src="/images/emi-pokedex-logo.png"
+          width={1000}
+          height={200}
+          alt="The EMI- Pokedex Logo"
+          style={{ width: "80%", height: "auto", padding: "2em", margin: "auto", display: "block" }}
+        />
+        <Card />
       </main>
     </>
   );
